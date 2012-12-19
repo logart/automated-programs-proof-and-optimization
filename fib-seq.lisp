@@ -1,0 +1,13 @@
+(defun fib-seq-internal (p pp n)
+        (if (and (integerp n) (> n 2))
+            (append (list p) (fib-seq-internal pp (+ p pp) (- n 1)))
+            (list p pp)
+        )
+)
+
+(defun fib-seq (n)
+    (if (> n 1)
+        (fib-seq-internal 1 1 n)
+        '(1)
+    )
+)
